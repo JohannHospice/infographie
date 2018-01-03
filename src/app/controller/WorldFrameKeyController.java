@@ -12,38 +12,31 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class WorldFrameKeyController extends KeyAdapter {
-    private final WorldFrame worldFrame;
     private WorldObject obj;
     private WorldPanel mp;
 
-    private double x = -300, y = -100, z = 0;
+    private double x = -300, y = -100, z = 10;
     private double rX = -100, rY = 0, rZ = 0;
 
     private final Set<Integer> pressed = new HashSet<>();
 
 
-    public WorldFrameKeyController(WorldFrame worldFrame) {
-        this.worldFrame = worldFrame;
-        obj = worldFrame.getObj();
-        mp = worldFrame.getMp();
-        /*
-        new Thread(new Runnable() {
-            @Override
-            public synchronized void run() {
-                while (true) {
-                    for (Integer code : pressed) {
-                        handleInput(code);
-                        updateTransform();
-                    }
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+    public WorldFrameKeyController(WorldObject obj, WorldPanel mp) {
+        this.obj = obj;
+        this.mp = mp;
+        new Thread(() -> {
+            while (true) {
+                for (Integer code : pressed) {
+                    handleInput(code);
+                    updateTransform();
+                }
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
-        */
     }
 
 
@@ -79,13 +72,10 @@ public class WorldFrameKeyController extends KeyAdapter {
             case KeyEvent.VK_D:
                 rY--;
                 break;
-            case KeyEvent.VK_ESCAPE:
-                worldFrame.dispose();
-                break;
         }
     }
 
-    private void updateTransform() {
+    private synchronized void updateTransform() {
         obj.resetTransform();
         obj.addTransform(Matrix.createTranslation(new Vector(x, y, z)));
         obj.addTransform(Matrix.createRotationX(Math.PI * 2 / 100 * rX / 3));

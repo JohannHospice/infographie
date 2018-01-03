@@ -24,8 +24,7 @@ public class WorldPanel extends GraphicPanel {
         clear(g);
 
         g.setColor(Color.BLACK);
-        Matrix m =
-                          Matrix.createParallelZ();
+        Matrix m = Matrix.createParallelZ();
         // Matrix.createPerspectiveZ(400);
 
         WorldObject currentObject = object;
