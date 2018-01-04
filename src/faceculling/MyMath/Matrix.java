@@ -1,4 +1,5 @@
-package app.modele.math;
+package faceculling.MyMath;
+
 
 public class Matrix {
     private static Matrix unity;

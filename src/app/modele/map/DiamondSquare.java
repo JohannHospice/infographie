@@ -1,99 +1,159 @@
 package app.modele.map;
 
-import app.modele.math.Random;
+import java.util.Arrays;
 
-public class DiamondSquare implements MatrixGenerator {
-    private int size;
-    private int minHeight, maxHeight;
-    private int n;
+public class DiamondSquare implements MapGenerator {
 
-    public DiamondSquare(int n) {
-        setN(n);
-    }
+    // the generated map's height and width will be equal to gensize
+    private int gensize;
+    private int width;
+    private int height;
+    private float variance;
 
-    @Override
-    public Matrix algorithm() {
-        Matrix matrix = new Matrix(size);
-        initialisation(matrix);
-        return propagate(matrix);
+    public DiamondSquare() {
+        gensize = (int) Math.pow(2, 9) + 1;
+        width = gensize;
+        height = gensize;
+        variance = 1;
     }
 
     /**
-     * initialisation des coins
+     * Adjusts the height map dimensions.
+     *
+     * @param width  - The desired width (in pixels) of generated maps.
+     * @param height - The desired height (in pixels) of generated maps.
      */
-    private void initialisation(Matrix matrix) {
-        matrix.set(0, 0, Random.next(-size, size));
-        matrix.set(0, size - 1, Random.next(-size, size));
-        matrix.set(size - 1, size - 1, Random.next(-size, size));
-        matrix.set(size - 1, 0, Random.next(-size, size));
+    public void setSize(int width, int height) {
+        this.width = width;
+        this.height = height;
+
+        // gensize must be in the form 2^n + 1 and
+        // also be greater or equal to both the width
+        // and height
+        float w = (float) Math.ceil(Math.log(width) / Math.log(2));
+        float h = (float) Math.ceil(Math.log(height) / Math.log(2));
+        gensize = w > h ? (int) Math.pow(2, w) + 1 : (int) Math.pow(2, h) + 1;
     }
 
-    private Matrix propagate(Matrix matrix) {
-        int i = size - 1;
-        while (i > 1) {
-            int id = i / 2;
-            diamond(matrix, id, i);
-            square(matrix, id, i);
-            i = id;
+
+    /**
+     * Adjusts the height map dimensions.
+     *
+     * @param n - Sets the width and height of generated maps to be 2^n + 1 pixels.
+     */
+    public void setGenerationSize(int n) {
+        gensize = (int) Math.pow(2, n) + 1;
+        width = gensize;
+        height = gensize;
+    }
+
+    /**
+     * @param v - The higher the variance, the rougher
+     *          the height map. By default it is 1.
+     */
+    public void setVariance(float v) {
+        variance = v;
+    }
+
+    /**
+     * Generates height map data and places it in a
+     * 2D array. A new height map is created everytime
+     * generate() is called.
+     *
+     * @return A 2D array containing height map data.
+     */
+    public float[][] algorithm() {
+        float[][] map = new float[gensize][gensize];
+
+        // Place initial seeds for corners
+        map[0][0] = (float) Math.random();
+        map[0][map.length - 1] = (float) Math.random();
+        map[map.length - 1][0] = (float) Math.random();
+        map[map.length - 1][map.length - 1] = (float) Math.random();
+
+        map = generate(map);
+
+        if (width < gensize || height < gensize) {
+            float[][] temp = new float[width][height];
+            for (int i = 0; i < temp.length; i++)
+                temp[i] = Arrays.copyOf(map[i], temp[i].length);
+            map = temp;
+
         }
-        return matrix;
+
+        return map;
+
     }
 
     /**
-     * début de la phase du diamant
+     * Fills the specified 2D array with height map data and returns it.
+     * Any index whose value is not 0 will not be overwritten and used
+     * during procedural generation. This makes this method ideal for
+     * pre-seeding data to generate maps with specific features.
+     *
+     * @param map - 2D array containing height map data
+     * @return A 2D array containing height map data.
      */
-    private void diamond(Matrix matrix, int id, int i) {
-        for (int x = id; x < size; x += i) {
-            for (int y = id; y < size; y += i) {
-                int sum = matrix.get(x - id, y - id)
-                        + matrix.get(x - id, y + id)
-                        + matrix.get(x + id, y + id)
-                        + matrix.get(x + id, y - id);
-                int avg = sum / 4;
-                matrix.set(x, y, avg + Random.next(-id, id));
+    public float[][] generate(float[][] map) {
+
+        map = map.clone();
+        int step = map.length - 1;
+
+        float v = variance;
+
+        while (step > 1) {
+
+            // SQUARE STEP
+            for (int i = 0; i < map.length - 1; i += step) {
+                for (int j = 0; j < map[i].length - 1; j += step) {
+                    float average = (map[i][j] + map[i + step][j] + map[i][j + step] + map[i + step][j + step]) / 4;
+                    if (map[i + step / 2][j + step / 2] == 0) // check if not pre-seeded
+                        map[i + step / 2][j + step / 2] = average + randVariance(v);
+                }
             }
-        }
-    }
 
-    /**
-     * début de la phase du carré
-     */
-    private void square(Matrix matrix, int id, int i) {
-        for (int x = 0; x < size; x += id) {
-            int shift = x % i == 0 ? id : 0;
-            for (int y = shift; y < size; y += i) {
-                int sum = 0, num = 0;
-                if (x >= id) {
-                    sum = sum + matrix.get(x - id, y);
-                    num = num + 1;
+            // DIAMOND STEP
+            for (int i = 0; i < map.length - 1; i += step) {
+                for (int j = 0; j < map[i].length - 1; j += step) {
+                    if (map[i + step / 2][j] == 0) // check if not pre-seeded
+                        map[i + step / 2][j] = averageDiamond(map, i + step / 2, j, step) + randVariance(v);
+                    if (map[i][j + step / 2] == 0)
+                        map[i][j + step / 2] = averageDiamond(map, i, j + step / 2, step) + randVariance(v);
+                    if (map[i + step][j + step / 2] == 0)
+                        map[i + step][j + step / 2] = averageDiamond(map, i + step, j + step / 2, step) + randVariance(v);
+                    if (map[i + step / 2][j + step] == 0)
+                        map[i + step / 2][j + step] = averageDiamond(map, i + step / 2, j + step, step) + randVariance(v);
                 }
-                if (x + id < size) {
-                    sum = sum + matrix.get(x + id, y);
-                    num = num + 1;
-                }
-                if (y >= id) {
-                    sum = sum + matrix.get(x, y - id);
-                    num = num + 1;
-                }
-                if (y + id < size) {
-                    sum = sum + matrix.get(x, y + id);
-                    num = num + 1;
-                }
-                matrix.set(x, y, sum / num + Random.next(-id, id));
             }
+            v /= 2;
+            step /= 2;
         }
+        return map;
     }
 
-    public int getSize() {
-        return size;
+    private float averageDiamond(float[][] map, int x, int y, int step) {
+        int count = 0;
+        float average = 0;
+        if (x - step / 2 >= 0) {
+            count++;
+            average += map[x - step / 2][y];
+        }
+        if (x + step / 2 < map.length) {
+            count++;
+            average += map[x + step / 2][y];
+        }
+        if (y - step / 2 >= 0) {
+            count++;
+            average += map[x][y - step / 2];
+        }
+        if (y + step / 2 < map.length) {
+            count++;
+            average += map[x][y + step / 2];
+        }
+        return average / count;
     }
 
-    public void setN(int n) {
-        this.n = n;
-        size = (int) (Math.pow(2, n) + 1);
-    }
-
-    public int getN() {
-        return n;
+    private float randVariance(float v) {
+        return (float) (Math.random() * 2 * v - v);
     }
 }
