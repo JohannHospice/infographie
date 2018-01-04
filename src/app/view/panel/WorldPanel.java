@@ -1,10 +1,12 @@
 package app.view.panel;
 
-import java.awt.Color;
-import java.awt.Graphics;
-
-import app.modele.math.*;
+import app.modele.math.Calculus;
+import app.modele.math.Matrix;
+import app.modele.math.Point;
+import app.modele.math.Segment;
 import app.modele.shape.WorldObject;
+
+import java.awt.*;
 
 public class WorldPanel extends GraphicPanel {
     private WorldObject object;

@@ -24,7 +24,7 @@ abstract class GraphicPanel extends JPanel {
     @Override
     public abstract void paintComponent(Graphics g);
 
-    public void clear(Graphics g){
+    public void clear(Graphics g) {
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, dimension.width, dimension.height);
     }

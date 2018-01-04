@@ -9,15 +9,19 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FaceCulling {
-    private static final double FPS = 60.0;
-    //	private static WorldObject obj = new Cube(100);
-    private static WorldObject obj;
+    private static final double FPS = 60;
+    private static final int WINDOWS_HEIGHT = 1000;
+    private static final float VARIANCE = 55;
+    private static final int WEIGHT = 5;
+
     private static DiamondSquare mapGen = new DiamondSquare();
+    private static WorldObject obj;
+
 
     static {
-        mapGen.setVariance(150);
+        mapGen.setVariance(VARIANCE);
         mapGen.setGenerationSize(7);
-        obj = new Map(mapGen.algorithm(), 10);
+        obj = new Map(mapGen.algorithm(), WEIGHT);
     }
 
     public static void createUI() {
@@ -25,7 +29,7 @@ public class FaceCulling {
         JPanel p = new JPanel();
         f.setContentPane(p);
         p.setLayout(new BorderLayout());
-        MyPanel mp = new MyPanel(500, 500);
+        MyPanel mp = new MyPanel(WINDOWS_HEIGHT, WINDOWS_HEIGHT);
         p.add(mp, BorderLayout.CENTER);
 
         JMenu m = new JMenu("Objects");
@@ -35,10 +39,10 @@ public class FaceCulling {
         m.add(cube);
 
         JMenuItem map = new JMenuItem("faceculling.Map");
-        map.addActionListener(e -> obj = new Map(mapGen.algorithm(), 10));
+        map.addActionListener(e -> obj = new Map(mapGen.algorithm(), WEIGHT));
         m.add(map);
 
-        JMenuItem sphere = new JMenuItem("faceculling.raytracer.Sphere");
+        JMenuItem sphere = new JMenuItem("faceculling.Sphere");
         sphere.addActionListener(e -> obj = new Sphere(40, 160, 200));
         m.add(sphere);
 
@@ -50,7 +54,6 @@ public class FaceCulling {
         f.setJMenuBar(mb);
         mb.add(m);
 
-
         f.pack();
         f.setVisible(true);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -58,25 +61,24 @@ public class FaceCulling {
         // f.addKeyListener(new WorldFrameKeyController(obj, mp));
 
         new Thread(() -> {
-            int i = 0;
+            float i = 0;
             final Vector light = new Vector(0, 0, 1);
             while (true) {
                 obj.resetTransform();
-                obj.addTransform(Matrix.createRotationY(Math.PI * 2 / 100 * i));
-                obj.addTransform(Matrix.createRotationX(Math.PI * 2 / 100 * i / 3));
-                obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i / 2));
+                obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i));
+                obj.addTransform(Matrix.createRotationX(2));
+                // obj.addTransform(Matrix.createRotationX(Math.PI * 2 / 100 * i / 3));
+                // obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i / 2));
                 obj.addTransform(Matrix.createTranslation(new Vector(0, 0, 500)));
                 Matrix lt = Matrix.createRotationY(i * -2 * Math.PI / 100);
                 // Matrix lt2 = Matrix.createRotationX(i * -2 * Math.PI / 100 / 2);
-                Vector l = Calculus.multiply(lt, light);
-                // l = Calculus.multiply(lt2, l);
-                mp.setWorldObject(obj.getTransformedObject(), l);
+                mp.setWorldObject(obj.getTransformedObject(), Calculus.multiply(lt, light));
                 try {
-                    Thread.sleep((int) (1 / FPS * 1000));
+                    Thread.sleep((long) (1 / FPS * 1000));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                i++;
+                i += 0.1;
             }
         }).start();
 

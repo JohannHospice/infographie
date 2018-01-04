@@ -11,7 +11,7 @@ public class OldDiamondSquare implements MapGenerator {
 
     @Override
     public float[][] algorithm() {
-        float arr [][] = new float[size][size];
+        float arr[][] = new float[size][size];
         initialisation(arr);
         return propagate(arr);
     }
@@ -62,11 +62,11 @@ public class OldDiamondSquare implements MapGenerator {
             for (int y = shift; y < size; y += i) {
                 float sum = 0, num = 0;
                 if (x >= id) {
-                    sum = sum + arr[x - id][ y];
+                    sum = sum + arr[x - id][y];
                     num = num + 1;
                 }
                 if (x + id < size) {
-                    sum = sum + arr[x + id][ y];
+                    sum = sum + arr[x + id][y];
                     num = num + 1;
                 }
                 if (y >= id) {
@@ -77,7 +77,7 @@ public class OldDiamondSquare implements MapGenerator {
                     sum = sum + arr[x][y + id];
                     num = num + 1;
                 }
-                arr[x][y]  = sum / num + Random.next(-id, id);
+                arr[x][y] = sum / num + Random.next(-id, id);
             }
         }
     }
@@ -86,12 +86,12 @@ public class OldDiamondSquare implements MapGenerator {
         return size;
     }
 
+    public int getN() {
+        return n;
+    }
+
     public void setN(int n) {
         this.n = n;
         size = (int) (Math.pow(2, n) + 1);
-    }
-
-    public int getN() {
-        return n;
     }
 }

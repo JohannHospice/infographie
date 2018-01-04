@@ -3,7 +3,6 @@ package app.controller;
 import app.modele.math.Matrix;
 import app.modele.math.Vector;
 import app.modele.shape.WorldObject;
-import app.view.WorldFrame;
 import app.view.panel.WorldPanel;
 
 import java.awt.event.KeyAdapter;
@@ -12,13 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class WorldFrameKeyController extends KeyAdapter {
+    private final Set<Integer> pressed = new HashSet<>();
     private WorldObject obj;
     private WorldPanel mp;
-
     private double x = -300, y = -100, z = 10;
     private double rX = -100, rY = 0, rZ = 0;
-
-    private final Set<Integer> pressed = new HashSet<>();
 
 
     public WorldFrameKeyController(WorldObject obj, WorldPanel mp) {
