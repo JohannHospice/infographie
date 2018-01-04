@@ -2,39 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0764242-07fe-4542-a328-87aed2bb79d9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/map/raytracer/RayTracer.class" afterPath="$PROJECT_DIR$/out/production/map/raytracer/RayTracer.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/controller/WorldFrameKeyController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/map/DiamondSquare.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/map/MapGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/map/OldDiamondSquare.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/math/Calculus.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/math/Matrix.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/math/Point.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/math/Random.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/math/Segment.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/math/Vector.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/shape/Cube.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/shape/Map.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/shape/Pyramid.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/shape/Sphere.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/shape/Square.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/modele/shape/WorldObject.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/view/WorldFrame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/view/panel/GraphicPanel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/app/view/panel/WorldPanel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/Cube.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/FaceCulling.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/Map.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Abstract4D.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Calculus.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Face$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Face$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Face.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Matrix.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Point.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Segment.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyMath/Vector.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/MyPanel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/Pyramid.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/Sphere.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/faceculling/WorldObject.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raycasting/Caster$Result.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raycasting/Caster.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raycasting/Map.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raycasting/MyPanel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raycasting/PanelMap.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raycasting/Point.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raycasting/RayCasting.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raycasting/Vector.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raytracer/MyPanel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raytracer/Point.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raytracer/RayTracer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raytracer/RayTracing.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raytracer/Sphere.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/map/raytracer/Vector.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/WorldFrameKeyController.java" afterPath="$PROJECT_DIR$/src/app/controller/WorldFrameKeyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/modele/map/OldDiamondSquare.java" afterPath="$PROJECT_DIR$/src/app/modele/map/OldDiamondSquare.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/modele/math/Matrix.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Matrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/modele/shape/WorldObject.java" afterPath="$PROJECT_DIR$/src/app/modele/shape/WorldObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/panel/GraphicPanel.java" afterPath="$PROJECT_DIR$/src/app/view/panel/GraphicPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/panel/WorldPanel.java" afterPath="$PROJECT_DIR$/src/app/view/panel/WorldPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/Cube.java" afterPath="$PROJECT_DIR$/src/faceculling/Cube.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/FaceCulling.java" afterPath="$PROJECT_DIR$/src/faceculling/FaceCulling.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/Map.java" afterPath="$PROJECT_DIR$/src/faceculling/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/MyMath/Abstract4D.java" afterPath="$PROJECT_DIR$/src/faceculling/MyMath/Abstract4D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/MyMath/Calculus.java" afterPath="$PROJECT_DIR$/src/faceculling/MyMath/Calculus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/MyMath/Face.java" afterPath="$PROJECT_DIR$/src/faceculling/MyMath/Face.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/MyMath/Matrix.java" afterPath="$PROJECT_DIR$/src/faceculling/MyMath/Matrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/MyMath/Point.java" afterPath="$PROJECT_DIR$/src/faceculling/MyMath/Point.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/MyMath/Segment.java" afterPath="$PROJECT_DIR$/src/faceculling/MyMath/Segment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/MyMath/Vector.java" afterPath="$PROJECT_DIR$/src/faceculling/MyMath/Vector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/MyPanel.java" afterPath="$PROJECT_DIR$/src/faceculling/MyPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/faceculling/Sphere.java" afterPath="$PROJECT_DIR$/src/faceculling/Sphere.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raycasting/Caster.java" afterPath="$PROJECT_DIR$/src/raycasting/Caster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raycasting/Map.java" afterPath="$PROJECT_DIR$/src/raycasting/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raycasting/MyPanel.java" afterPath="$PROJECT_DIR$/src/raycasting/MyPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raycasting/PanelMap.java" afterPath="$PROJECT_DIR$/src/raycasting/PanelMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raycasting/Point.java" afterPath="$PROJECT_DIR$/src/raycasting/Point.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raycasting/RayCasting.java" afterPath="$PROJECT_DIR$/src/raycasting/RayCasting.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raycasting/Vector.java" afterPath="$PROJECT_DIR$/src/raycasting/Vector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytracer/MyPanel.java" afterPath="$PROJECT_DIR$/src/raytracer/MyPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytracer/Point.java" afterPath="$PROJECT_DIR$/src/raytracer/Point.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytracer/RayTracer.java" afterPath="$PROJECT_DIR$/src/raytracer/RayTracer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytracer/RayTracing.java" afterPath="$PROJECT_DIR$/src/raytracer/RayTracing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytracer/Sphere.java" afterPath="$PROJECT_DIR$/src/raytracer/Sphere.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/raytracer/Vector.java" afterPath="$PROJECT_DIR$/src/raytracer/Vector.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyPanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/faceculling/MyPanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1123">
@@ -66,6 +83,16 @@
               <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
               <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
               <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="68" column="46" lean-forward="false" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -98,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/para/math/Calculus.java" />
         <option value="$PROJECT_DIR$/src/app/modele/map/Map.java" />
         <option value="$PROJECT_DIR$/src/para/shape/Sphere.java" />
         <option value="$PROJECT_DIR$/src/para/shape/Square.java" />
@@ -149,6 +175,7 @@
         <option value="$PROJECT_DIR$/src/faceculling/FaceCulling.java" />
         <option value="$PROJECT_DIR$/src/faceculling/Map.java" />
         <option value="$PROJECT_DIR$/src/faceculling/MyPanel.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -192,6 +219,11 @@
             <path>
               <item name="infographie" type="b2602c69:ProjectViewProjectNode" />
               <item name="infographie" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="infographie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="infographie" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="infographie" type="b2602c69:ProjectViewProjectNode" />
@@ -625,12 +657,27 @@
       <updated>1512177064423</updated>
       <workItem from="1514648609003" duration="57000" />
       <workItem from="1514648685547" duration="3086000" />
-      <workItem from="1514724511349" duration="18692000" />
+      <workItem from="1514724511349" duration="18801000" />
     </task>
+    <task id="LOCAL-00001" summary="Update faceCulling">
+      <created>1515024171629</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1515024171629</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Remove classes">
+      <created>1515024219361</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1515024219361</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21835000" />
+    <option name="totallyTimeSpent" value="21944000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1167" height="1047" extended-state="0" />
@@ -672,6 +719,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update faceCulling" />
+    <MESSAGE value="Remove classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove classes" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="23" />
@@ -683,13 +735,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/modele/math/Segment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/io/PrintStream.class" />
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/awt/event/KeyAdapter.class" />
     <entry file="file://$PROJECT_DIR$/src/app/view/tools/BGraphics.java" />
@@ -1033,6 +1078,14 @@
           <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
           <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
           <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="68" column="46" lean-forward="false" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
           <folding />
         </state>
       </provider>
