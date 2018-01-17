@@ -18,7 +18,7 @@ public class Map extends WorldObject {
     public Map(float[][] arr, int weight, LinkedList<VectorXYZ> visit) {
         this(arr, weight);
         int stroke = 2;
-        float height = 100;
+        float height = 10;
 
         for (VectorXYZ v : visit) {
             add(new Point(v.x * weight - midSize + stroke / 2, v.y * weight - midSize + stroke / 2, v.z + height));
@@ -26,7 +26,7 @@ public class Map extends WorldObject {
         }
 
         for (int i = arr.length * arr[0].length; i < arr.length * arr[0].length + visit.size(); i++)
-            add(Color.GREEN, i, i + 1, i + 3,  i + 2);
+            add(Color.WHITE, i, i + 1, i + 3,  i + 2);
     }
 
     public Map(float arr[][], int weight) {

@@ -1,13 +1,14 @@
 package app;
 
+import app.layout.SpringUtilities;
 import app.map.DiamondSquare;
 import app.map.MapGenerator;
 import app.map.PerlinNoise;
+import app.math.Calculus;
 import app.math.Matrix;
 import app.math.Vector;
 import app.path.PathFinder;
 import app.shape.Map;
-import app.layout.SpringUtilities;
 import app.shape.WorldObject;
 
 import javax.swing.*;
@@ -18,20 +19,20 @@ public class Application {
     private static final double FPS = 60;
     private static final int WINDOWS_HEIGHT = 1000;
 
-    private static final float VARIANCE = 120;
-    private static final int HEIGHT = 125, WIDTH = 125, WEIGHT = 6;
+    private static float variance = 120;
+    private static int size = 125, height = 6;
 
     private static ArrayList<MapGenerator> mapGen = new ArrayList<>();
     private static int mapGenIndex = 0;
     private static WorldObject obj;
 
     static {
-        mapGen.add(new DiamondSquare(WIDTH, HEIGHT, VARIANCE));
-        mapGen.add(new PerlinNoise(WIDTH, HEIGHT, VARIANCE));
+        mapGen.add(new DiamondSquare(size, size, variance));
+        mapGen.add(new PerlinNoise(size, size, variance));
         float[][] grid = mapGen.get(mapGenIndex).algorithm();
 
         PathFinder pathFinder = new PathFinder(grid, 100);
-        obj = new Map(grid, WEIGHT, pathFinder.find(14, 10, 30, 80));
+        obj = new Map(grid, height, pathFinder.find(0, 0, size - 1, size - 1));
     }
 
     private static WorldObjectPanel mp;
@@ -71,11 +72,10 @@ public class Application {
 
         // input
         JTextField q[] = new JTextField[]{
-                new JTextField(String.valueOf(WIDTH), 1),
-                new JTextField(String.valueOf(HEIGHT), 1),
-                new JTextField(String.valueOf(VARIANCE), 1),
-                new JTextField(String.valueOf(WEIGHT), 1)};
-        String s[] = new String[]{"width: ", "height:", "variance:", "weight:"};
+                new JTextField(String.valueOf(size), 1),
+                new JTextField(String.valueOf(variance), 1),
+                new JTextField(String.valueOf(height), 1)};
+        String s[] = new String[]{"size:", "variance:", "weight:"};
         int numPairs = s.length;
 
         JPanel inputPnl = new JPanel(new SpringLayout());
@@ -96,17 +96,20 @@ public class Application {
 
         //refresh btn
         Button refresh = new Button("Refresh");
-        refresh.addActionListener(e -> obj = new Map(
-                mapGen.get(mapGenIndex).set(
-                        Integer.parseInt(q[0].getText()),
-                        Integer.parseInt(q[1].getText()),
-                        Float.parseFloat(q[2].getText())).algorithm(),
-                Integer.parseInt(q[3].getText())));
+        refresh.addActionListener(e -> {
+            float[][] grid = mapGen.get(mapGenIndex).set(
+                    Integer.parseInt(q[0].getText()),
+                    Integer.parseInt(q[0].getText()),
+                    Float.parseFloat(q[1].getText())).algorithm();
+
+            PathFinder pathFinder = new PathFinder(grid, 100);
+            obj = new Map(grid, Integer.parseInt(q[2].getText()), pathFinder.find(0, 0, size - 1, size - 1));
+        });
         pc.add(refresh);
 
 
         //graphic panel
-        mp = new WorldObjectPanel(WINDOWS_HEIGHT, WINDOWS_HEIGHT);
+        mp = new WorldObjectPanel(WINDOWS_HEIGHT, WINDOWS_HEIGHT, 1);
         p.add(mp, BorderLayout.CENTER);
 
         f.pack();
@@ -119,17 +122,26 @@ public class Application {
         new Thread(() -> {
             float i = 0;
             final Vector light = new Vector(0, 0, 1);
+            final Matrix camera = mp.getCamera();
+            obj.resetTransform();
+            mp.addWorldObject(obj.getTransformedObject());
             while (true) {
                 obj.resetTransform();
-                obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i));
+                // obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i));
                 obj.addTransform(Matrix.createRotationX(2));
+                obj.addTransform(Matrix.createTranslation(new Vector(0, 0, 500)));
+
                 // obj.addTransform(Matrix.createRotationX(Math.PI * 2 / 100 * i / 3));
                 // obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i / 2));
-                obj.addTransform(Matrix.createTranslation(new Vector(0, 0, 500)));
                 // Matrix lt = Matrix.createRotationY(i * -2 * Math.PI / 100);
                 // Matrix lt2 = Matrix.createRotationX(i * -2 * Math.PI / 100 / 2);
-                // Calculus.multiply(lt, light));
-                mp.setWorldObject(obj.getTransformedObject(), light);
+                // Calculus.multiply(lt, light);
+
+                Matrix lt =Calculus.multiply(camera, Matrix.createTranslation(new Vector(0,0,-i))) ;
+
+                mp.setCamera(lt);
+                mp.setWorldObject(0, obj.getTransformedObject());
+                mp.setLight(light);
                 mp.repaint();
 
                 try {
@@ -137,14 +149,13 @@ public class Application {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                i += .1;
+                i += 1;
             }
         }).start();
-
     }
 
     public static void main(String[] args) {
-        Application.createUI();
+        SwingUtilities.invokeLater(Application::createUI);
         SwingUtilities.invokeLater(Application::start);
     }
 
