@@ -15,11 +15,12 @@ public class WorldFrameKeyController extends KeyAdapter {
     private final WorldObjectPanel wp;
     private double x = 0, y = 0, z = 0,
             rX = 0, rY = 0, rZ = 0;
-    private double speedTranslate = 10, speedRotation = 10;
+    private double speedTranslate = 10, speedRotation = 1;
 
 
     public WorldFrameKeyController(WorldObjectPanel wp) {
         this.wp = wp;
+        wp.getCurrentObject();
         /*
         new Thread(() -> {
             while (true) {
@@ -33,8 +34,7 @@ public class WorldFrameKeyController extends KeyAdapter {
                     e.printStackTrace();
                 }
             }
-        }).start();
-        */
+        }).start();*/
     }
 
 
@@ -43,7 +43,7 @@ public class WorldFrameKeyController extends KeyAdapter {
         super.keyPressed(keyEvent);
         pressed.add(keyEvent.getKeyCode());
         handleInput(keyEvent.getKeyCode());
-        wp.setCamera(makeCamera());
+        // wp.setCamera(makeCamera());
     }
 
     @Override
@@ -58,9 +58,9 @@ public class WorldFrameKeyController extends KeyAdapter {
                 Calculus.multiply(
                         Calculus.multiply(
                                 Calculus.multiply(
-                                        Matrix.createRotationX(Math.PI * 2 / 100 * rX / 3),
+                                        Matrix.createRotationY(Math.PI / 100 * rY * -2),
                                         Matrix.createRotationZ(Math.PI * 2 / 100 * rZ / 2)),
-                                Matrix.createRotationY(rY * -2 * Math.PI / 100)),
+                                Matrix.createRotationX(Math.PI * 2 / 100 * rX)),
                         Matrix.createTranslation(new Vector(x, y, z)))
         );
     }
@@ -85,14 +85,12 @@ public class WorldFrameKeyController extends KeyAdapter {
             case KeyEvent.VK_M:
                 y += speedTranslate;
                 break;
-                /*
             case KeyEvent.VK_A:
                 rZ -= speedRotation;
                 break;
             case KeyEvent.VK_E:
                 rZ += speedRotation;
                 break;
-                */
             case KeyEvent.VK_Z:
                 rX -= speedRotation;
                 break;

@@ -49,12 +49,10 @@ public class WorldObject implements Iterable<Face> {
 
     public WorldObject getTransformedObject() {
         WorldObject o = new WorldObject();
-        for (Point p : points) {
+        for (Point p : points)
             o.add(Calculus.multiply(transform, p));
-        }
-        for (Face f : this) {
+        for (Face f : this)
             o.add(new Face(f.getIndices(), o.points, f.getColor()));
-        }
         return o;
     }
 

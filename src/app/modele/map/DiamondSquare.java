@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class DiamondSquare implements MapGenerator {
 
-    // the generated map's height and width will be equal to gensize
     private int gensize;
     private int width;
     private int height;
@@ -22,12 +21,6 @@ public class DiamondSquare implements MapGenerator {
         setVariance(variance);
     }
 
-    /**
-     * Adjusts the height map dimensions.
-     *
-     * @param width  - The desired width (in pixels) of generated maps.
-     * @param height - The desired height (in pixels) of generated maps.
-     */
     public void setSize(int width, int height) {
         this.width = width;
         this.height = height;
@@ -40,33 +33,16 @@ public class DiamondSquare implements MapGenerator {
         gensize = w > h ? (int) Math.pow(2, w) + 1 : (int) Math.pow(2, h) + 1;
     }
 
-
-    /**
-     * Adjusts the height map dimensions.
-     *
-     * @param n - Sets the width and height of generated maps to be 2^n + 1 pixels.
-     */
     public void setGenerationSize(int n) {
         gensize = (int) Math.pow(2, n) + 1;
         width = gensize;
         height = gensize;
     }
 
-    /**
-     * @param v - The higher the variance, the rougher
-     *          the height map. By default it is 1.
-     */
     public void setVariance(float v) {
         variance = v;
     }
 
-    /**
-     * Generates height map data and places it in a
-     * 2D array. A new height map is created everytime
-     * generate() is called.
-     *
-     * @return A 2D array containing height map data.
-     */
     public float[][] algorithm() {
         float[][] map = new float[gensize][gensize];
 
@@ -97,15 +73,6 @@ public class DiamondSquare implements MapGenerator {
         return this;
     }
 
-    /**
-     * Fills the specified 2D array with height map data and returns it.
-     * Any index whose value is not 0 will not be overwritten and used
-     * during procedural generation. This makes this method ideal for
-     * pre-seeding data to generate maps with specific features.
-     *
-     * @param map - 2D array containing height map data
-     * @return A 2D array containing height map data.
-     */
     public float[][] generate(float[][] map) {
 
         map = map.clone();

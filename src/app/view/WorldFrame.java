@@ -4,31 +4,32 @@ import app.controller.WorldFrameKeyController;
 import app.modele.map.DiamondSquare;
 import app.modele.map.MapGenerator;
 import app.modele.map.PerlinNoise;
-import app.modele.math.Calculus;
 import app.modele.math.Matrix;
 import app.modele.math.Vector;
+import app.modele.math.VectorXY;
 import app.modele.path.PathFinder;
 import app.modele.shape.Map;
 import app.modele.shape.WorldObject;
-import app.view.layout.SpringUtilities;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public final class WorldFrame extends JFrame {
     private static final double FPS = 60;
     private static final int WINDOWS_HEIGHT = 1000;
-
-    private float variance = 120;
-    private int size = 125, height = 6;
-    private int mapGenIndex = 0;
-    private int weightMax = 20;
-
+    private final WorldObjectPanel mp;
+    private final ArrayList<MapGenerator> mapGen = new ArrayList<>();
+    private final PathFinder pathFinder = new PathFinder();
+    private float variance = 100;
+    private int size = 120, weight = 6, mapGenIndex = 0, pathfinderHeightMax = 200;
     private WorldObject obj;
-    private WorldObjectPanel mp;
-
-    private ArrayList<MapGenerator> mapGen = new ArrayList<>();
+    private Vector light = new Vector(0, 0, 1);
+    private Vector objPosition = new Vector(0, 0, 500);
+    private double spZoom = 10;
+    private double zRotation = 1;
+    private float[][] grid;
 
     public WorldFrame() {
         super("Map generator");
@@ -38,7 +39,7 @@ public final class WorldFrame extends JFrame {
         p.setLayout(new BorderLayout());
         setContentPane(p);
 
-        // p.add(buildControlPanel(), BorderLayout.WEST);
+        p.add(new ControlPanel(this), BorderLayout.WEST);
 
         mp = new WorldObjectPanel(WINDOWS_HEIGHT, WINDOWS_HEIGHT, 1);
         addKeyListener(new WorldFrameKeyController(mp));
@@ -47,93 +48,41 @@ public final class WorldFrame extends JFrame {
         pack();
     }
 
-    //controller panel
-    private JPanel buildControlPanel() {
-        JPanel pc = new JPanel(new GridBagLayout());
-        BoxLayout pcLayout = new BoxLayout(pc, BoxLayout.PAGE_AXIS);
-        pc.setLayout(pcLayout);
+    public int getMapSize() {
+        return size;
+    }
 
-        // algo
-        JPanel algoPnl = new JPanel();
-        algoPnl.setLayout(new BoxLayout(algoPnl, BoxLayout.PAGE_AXIS));
+    public void generateMap(int size, int weight, float variance) {
+        this.size = size;
+        this.weight = weight;
+        this.variance = variance;
+        grid = mapGen.get(mapGenIndex).set(size, size, variance).algorithm();
+        obj = new Map(grid, weight);
+    }
 
-        algoPnl.add(new JLabel("algorithm:"));
-
-        JRadioButton diamondSquareBtn = new JRadioButton("diamond square");
-        diamondSquareBtn.addActionListener(e -> mapGenIndex = 0);
-        diamondSquareBtn.setSelected(true);
-
-        JRadioButton perlinNoiseBtn = new JRadioButton("perlin noise");
-        perlinNoiseBtn.addActionListener(e -> mapGenIndex = 1);
-
-        ButtonGroup algoGroup = new ButtonGroup();
-        algoGroup.add(diamondSquareBtn);
-        algoGroup.add(perlinNoiseBtn);
-
-        algoPnl.add(perlinNoiseBtn);
-        algoPnl.add(diamondSquareBtn);
-        pc.add(algoPnl);
-
-        // input
-        JTextField q[] = new JTextField[]{
-                new JTextField(String.valueOf(size), 1),
-                new JTextField(String.valueOf(variance), 1),
-                new JTextField(String.valueOf(height), 1)};
-        String s[] = new String[]{"size:", "variance:", "weight:"};
-        int numPairs = s.length;
-
-        JPanel inputPnl = new JPanel(new SpringLayout());
-        for (int i = 0; i < numPairs; i++) {
-            inputPnl.add(new JLabel(s[i]));
-            inputPnl.add(q[i]);
-        }
-        pc.add(inputPnl);
-        SpringUtilities.makeCompactGrid(inputPnl, numPairs, 2, 6, 6, 6, 6);
-
-        //refresh btn
-        Button refresh = new Button("Refresh");
-        refresh.addActionListener(e -> {
-            float[][] grid = mapGen.get(mapGenIndex).set(
-                    Integer.parseInt(q[0].getText()),
-                    Integer.parseInt(q[0].getText()),
-                    Float.parseFloat(q[1].getText())).algorithm();
-
-            PathFinder pathFinder = new PathFinder(grid, weightMax);
-            obj = new Map(grid, Integer.parseInt(q[2].getText()), pathFinder.find(0, 0, size - 1, size - 1));
-        });
-        pc.add(refresh);
-        return pc;
-
+    public void generatePath(int srcX, int srxY, int dstX, int dstY) {
+        LinkedList<VectorXY> path = pathFinder.setMap(grid).find(srcX, srxY, dstX, dstY); //.setWeightMax(weight).setHeightMax(pathfinderHeightMax).setHeightMin(0);
+        obj = new Map(grid, weight, path);
     }
 
     private void init() {
         mapGen.add(new DiamondSquare(size, size, variance));
         mapGen.add(new PerlinNoise(size, size, variance));
-        float[][] grid = mapGen.get(mapGenIndex).algorithm();
-
-        PathFinder pathFinder = new PathFinder(grid, weightMax);
-        obj = new Map(grid, height, pathFinder.find(0, 0, size - 1, size - 1));
+        generateMap(size, weight, variance);
     }
 
     public void start() {
         new Thread(() -> {
             float i = 0;
-            final Vector light = new Vector(0, 0, 1);
-            obj.resetTransform();
-            mp.addWorldObject(obj.getTransformedObject());
+
             while (true) {
                 obj.resetTransform();
-                // obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i));
+                obj.addTransform(Matrix.createRotationY(Math.PI * 2 / 100 * zRotation));
+                obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i));
                 obj.addTransform(Matrix.createRotationX(2));
-                obj.addTransform(Matrix.createTranslation(new Vector(0, 0, 500)));
+                obj.addTransform(Matrix.createTranslation(objPosition));
+                mp.setWorldObject(obj.getTransformedObject());
 
-                // obj.addTransform(Matrix.createRotationX(Math.PI * 2 / 100 * i / 3));
-                // obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i / 2));
-                // Matrix lt = Matrix.createRotationY(i * -2 * Math.PI / 100);
-                // Matrix lt2 = Matrix.createRotationX(i * -2 * Math.PI / 100 / 2);
-                // Calculus.multiply(lt, light);
-
-                mp.setWorldObject(0, obj.getTransformedObject());
                 mp.setLight(light);
                 mp.repaint();
 
@@ -142,9 +91,48 @@ public final class WorldFrame extends JFrame {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                i += 1;
+                i += .1;
             }
         }).start();
     }
 
+    public Vector getLight() {
+        return light;
+    }
+
+    public void setLight(Vector light) {
+        this.light = light;
+    }
+
+    public void setMapGenIndex(int mapGenIndex) {
+        this.mapGenIndex = mapGenIndex;
+    }
+
+    public float getVariance() {
+        return variance;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public PathFinder getPathFinder() {
+        return pathFinder;
+    }
+
+    public void incObjRotation() {
+        zRotation += spZoom;
+    }
+
+    public void decObjRotation() {
+        zRotation -= spZoom;
+    }
+
+    public void incObjZoom() {
+        objPosition = new Vector(0, 0, objPosition.getZ() + spZoom);
+    }
+
+    public void decObjZoom() {
+        objPosition = new Vector(0, 0, objPosition.getZ() - spZoom);
+    }
 }

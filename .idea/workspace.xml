@@ -2,44 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0764242-07fe-4542-a328-87aed2bb79d9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/math/Abstract4D.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/math/Calculus.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/math/Matrix.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/math/Point.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/math/Segment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/math/Vector.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/shape/Cube.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/shape/Map.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/shape/Pyramid.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/shape/Sphere.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/shape/Square.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/modele/shape/WorldObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/view/WorldFrame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/view/panel/GraphicPanel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/old/view/panel/WorldPanel.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/WorldObjectPanel.java" afterPath="$PROJECT_DIR$/src/app/view/WorldObjectPanel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/layout/SpringUtilities.java" afterPath="$PROJECT_DIR$/src/app/view/layout/SpringUtilities.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/map/DiamondSquare.java" afterPath="$PROJECT_DIR$/src/app/modele/map/DiamondSquare.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/map/MapGenerator.java" afterPath="$PROJECT_DIR$/src/app/modele/map/MapGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/map/OldDiamondSquare.java" afterPath="$PROJECT_DIR$/src/app/modele/map/OldDiamondSquare.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/map/PerlinNoise.java" afterPath="$PROJECT_DIR$/src/app/modele/map/PerlinNoise.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/Abstract4D.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Abstract4D.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/Calculus.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Calculus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/Face.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Face.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/Matrix.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Matrix.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/Point.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Point.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/Random.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Random.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/Segment.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Segment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/Vector.java" afterPath="$PROJECT_DIR$/src/app/modele/math/Vector.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/VectorXY.java" afterPath="$PROJECT_DIR$/src/app/modele/math/VectorXY.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/math/VectorXYZ.java" afterPath="$PROJECT_DIR$/src/app/modele/math/VectorXYZ.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/path/PathFinder.java" afterPath="$PROJECT_DIR$/src/app/modele/path/PathFinder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/shape/Map.java" afterPath="$PROJECT_DIR$/src/app/modele/shape/Map.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/shape/Path.java" afterPath="$PROJECT_DIR$/src/app/modele/shape/Path.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/shape/WorldObject.java" afterPath="$PROJECT_DIR$/src/app/modele/shape/WorldObject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/old/controller/WorldFrameKeyController.java" afterPath="$PROJECT_DIR$/src/app/controller/WorldFrameKeyController.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/view/layout/SpringUtilities.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/Application.java" afterPath="$PROJECT_DIR$/src/app/Application.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/WorldFrameKeyController.java" afterPath="$PROJECT_DIR$/src/app/controller/WorldFrameKeyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/modele/map/DiamondSquare.java" afterPath="$PROJECT_DIR$/src/app/modele/map/DiamondSquare.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/modele/map/PerlinNoise.java" afterPath="$PROJECT_DIR$/src/app/modele/map/PerlinNoise.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/modele/path/PathFinder.java" afterPath="$PROJECT_DIR$/src/app/modele/path/PathFinder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/modele/shape/Map.java" afterPath="$PROJECT_DIR$/src/app/modele/shape/Map.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/modele/shape/WorldObject.java" afterPath="$PROJECT_DIR$/src/app/modele/shape/WorldObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/WorldFrame.java" afterPath="$PROJECT_DIR$/src/app/view/WorldFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/WorldObjectPanel.java" afterPath="$PROJECT_DIR$/src/app/view/WorldObjectPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,15 +21,69 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/infographie$Application.coverage" NAME="Application Coverage Results" MODIFIED="1516241315137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.modele.shape.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myFlattenPackages" value="true" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WorldObjectPanel.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/view/WorldObjectPanel.java">
+      <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/modele/shape/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="78" column="39" lean-forward="false" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+            <state relative-caret-position="245">
+              <caret line="34" column="84" lean-forward="false" selection-start-line="34" selection-start-column="84" selection-end-line="34" selection-end-column="84" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorldFrame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/view/WorldFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="58" column="63" lean-forward="false" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1608#1609#0" expanded="true" />
+                <element signature="e#3240#3241#0" expanded="true" />
+                <element signature="e#3268#3269#0" expanded="true" />
+                <element signature="e#3310#3311#0" expanded="true" />
+                <element signature="e#3344#3345#0" expanded="true" />
+                <element signature="e#3395#3396#0" expanded="true" />
+                <element signature="e#3441#3442#0" expanded="true" />
+                <element signature="e#3475#3476#0" expanded="true" />
+                <element signature="e#3506#3507#0" expanded="true" />
+                <element signature="e#3536#3537#0" expanded="true" />
+                <element signature="e#3565#3566#0" expanded="true" />
+                <element signature="e#3606#3607#0" expanded="true" />
+                <element signature="e#3639#3640#0" expanded="true" />
+                <element signature="e#3675#3676#0" expanded="true" />
+                <element signature="e#3710#3711#0" expanded="true" />
+                <element signature="e#3746#3747#0" expanded="true" />
+                <element signature="e#3781#3782#0" expanded="true" />
+                <element signature="e#3813#3814#0" expanded="true" />
+                <element signature="e#3888#3889#0" expanded="true" />
+                <element signature="e#3920#3921#0" expanded="true" />
+                <element signature="e#3995#3996#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PathFinder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/modele/path/PathFinder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-525">
+              <caret line="61" column="3" lean-forward="false" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,6 +107,11 @@
       <find>&gt;</find>
       <find>o</find>
       <find>old</find>
+      <find>Map</find>
+      <find>obj</find>
+      <find>find</find>
+      <find>camera</find>
+      <find>getSize</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/app</dir>
@@ -97,12 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/para/Frame.java" />
-        <option value="$PROJECT_DIR$/src/app/Frame.java" />
-        <option value="$PROJECT_DIR$/src/app/controler/FrameKeyControler.java" />
-        <option value="$PROJECT_DIR$/src/app/controler/WorldFrameKeyControler.java" />
-        <option value="$PROJECT_DIR$/src/app/controler/WorldFrameKeyController.java" />
-        <option value="$PROJECT_DIR$/src/app/view/panel/PlanPanel.java" />
         <option value="$PROJECT_DIR$/src/app/view/Frame.java" />
         <option value="$PROJECT_DIR$/src/app/modele/map/Matrix.java" />
         <option value="$PROJECT_DIR$/src/app/modele/map/MatrixGenerator.java" />
@@ -118,8 +143,6 @@
         <option value="$PROJECT_DIR$/src/faceculling/Map.java" />
         <option value="/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/javax/swing/ButtonGroup.class" />
         <option value="$PROJECT_DIR$/src/layout/SpringUtilities.java" />
-        <option value="$PROJECT_DIR$/src/app/modele/map/PerlinNoise.java" />
-        <option value="$PROJECT_DIR$/src/app/modele/map/DiamondSquare.java" />
         <option value="$PROJECT_DIR$/src/app/modele/map/OldDiamondSquare.java" />
         <option value="$PROJECT_DIR$/src/app/modele/map/MapGenerator.java" />
         <option value="$PROJECT_DIR$/src/faceculling/Path.java" />
@@ -145,9 +168,17 @@
         <option value="$PROJECT_DIR$/src/app/shape/Map.java" />
         <option value="$PROJECT_DIR$/src/app/modele/shape/Square.java" />
         <option value="$PROJECT_DIR$/src/app/Application.java" />
-        <option value="$PROJECT_DIR$/src/app/view/WorldFrame.java" />
+        <option value="$PROJECT_DIR$/src/app/modele/shape/WorldObject.java" />
+        <option value="$PROJECT_DIR$/src/app/modele/shape/Plan.java" />
         <option value="$PROJECT_DIR$/src/app/controller/WorldFrameKeyController.java" />
         <option value="$PROJECT_DIR$/src/app/view/WorldObjectPanel.java" />
+        <option value="$PROJECT_DIR$/src/app/modele/map/DiamondSquare.java" />
+        <option value="$PROJECT_DIR$/src/app/modele/map/PerlinNoise.java" />
+        <option value="/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/awt/Component.class" />
+        <option value="$PROJECT_DIR$/src/app/modele/path/PathFinder.java" />
+        <option value="$PROJECT_DIR$/src/app/modele/shape/Map.java" />
+        <option value="$PROJECT_DIR$/src/app/view/WorldFrame.java" />
+        <option value="$PROJECT_DIR$/src/app/view/ControlPanel.java" />
       </list>
     </option>
   </component>
@@ -161,10 +192,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1857" />
-    <option name="height" value="1092" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -328,6 +359,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="modele" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="map" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infographie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infographie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -338,6 +395,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -716,7 +774,7 @@
     <option name="totallyTimeSpent" value="21944000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -728,8 +786,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19937369" sideWeight="0.31509122" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61791384" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19937369" sideWeight="0.6849088" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3308977" sideWeight="0.6849088" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.49806523" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -784,6 +843,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -808,7 +893,7 @@
           <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="58" />
+      <option name="time" value="68" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -817,15 +902,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/modele/map/Matrix.java" />
-    <entry file="file://$PROJECT_DIR$/src/app/modele/path/AStarSearch.java" />
-    <entry file="file://$PROJECT_DIR$/src/old/modele/shape/WorldObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/old/view/panel/WorldPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -880,37 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/view/layout/SpringUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/map/PerlinNoise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/map/MapGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/map/OldDiamondSquare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/modele/math/Point.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -950,26 +995,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/math/Calculus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/modele/math/VectorXY.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/map/DiamondSquare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1720">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -982,16 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/shape/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/modele/math/Random.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -1000,36 +1019,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/shape/WorldObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/shape/Path.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="99" lean-forward="false" selection-start-line="14" selection-start-column="99" selection-end-line="14" selection-end-column="99" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/modele/math/Abstract4D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-69">
           <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/math/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="36" lean-forward="false" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1074,46 +1067,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/view/layout/SpringUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="42" column="3" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/modele/math/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
+        <state relative-caret-position="237">
           <caret line="66" column="25" lean-forward="false" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/modele/path/PathFinder.java">
+    <entry file="file://$PROJECT_DIR$/src/app/modele/shape/Plan.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="62" column="40" lean-forward="true" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="100">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/math/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/shape/Path.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="99" lean-forward="false" selection-start-line="14" selection-start-column="99" selection-end-line="14" selection-end-column="99" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/map/DiamondSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-740">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/map/MapGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/map/OldDiamondSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding>
+            <element signature="e#445#446#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/controller/WorldFrameKeyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/view/WorldFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="130" column="63" lean-forward="false" selection-start-line="130" selection-start-column="63" selection-end-line="130" selection-end-column="63" />
+        <state relative-caret-position="151">
+          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1122,9 +1160,121 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/view/WorldObjectPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="78" column="39" lean-forward="false" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+        <state relative-caret-position="171">
+          <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+          <folding>
+            <element signature="e#5107#5108#0" expanded="true" />
+            <element signature="e#5143#5144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/map/PerlinNoise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="971">
+          <caret line="107" column="26" lean-forward="false" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
+          <caret line="108" column="33" lean-forward="false" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <caret line="76" column="42" lean-forward="false" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
+          <caret line="77" column="46" lean-forward="false" selection-start-line="77" selection-start-column="46" selection-end-line="77" selection-end-column="46" />
+          <caret line="79" column="27" lean-forward="false" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
+          <caret line="80" column="27" lean-forward="false" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
+          <caret line="82" column="27" lean-forward="false" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+          <caret line="83" column="28" lean-forward="false" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+          <caret line="85" column="59" lean-forward="false" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
+          <caret line="86" column="67" lean-forward="false" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="67" />
+          <caret line="88" column="60" lean-forward="false" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
+          <caret line="89" column="42" lean-forward="false" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
+          <caret line="90" column="49" lean-forward="false" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
+          <caret line="91" column="55" lean-forward="false" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="55" />
+          <caret line="92" column="61" lean-forward="false" selection-start-line="92" selection-start-column="61" selection-end-line="92" selection-end-column="61" />
+          <caret line="93" column="58" lean-forward="false" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/awt/Component.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="866" column="21" lean-forward="false" selection-start-line="866" selection-start-column="21" selection-end-line="866" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/math/Calculus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/shape/WorldObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/path/PathFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-525">
+          <caret line="61" column="3" lean-forward="false" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/modele/shape/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="34" column="84" lean-forward="false" selection-start-line="34" selection-start-column="84" selection-end-line="34" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/view/ControlPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/view/WorldFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="58" column="63" lean-forward="false" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1608#1609#0" expanded="true" />
+            <element signature="e#3240#3241#0" expanded="true" />
+            <element signature="e#3268#3269#0" expanded="true" />
+            <element signature="e#3310#3311#0" expanded="true" />
+            <element signature="e#3344#3345#0" expanded="true" />
+            <element signature="e#3395#3396#0" expanded="true" />
+            <element signature="e#3441#3442#0" expanded="true" />
+            <element signature="e#3475#3476#0" expanded="true" />
+            <element signature="e#3506#3507#0" expanded="true" />
+            <element signature="e#3536#3537#0" expanded="true" />
+            <element signature="e#3565#3566#0" expanded="true" />
+            <element signature="e#3606#3607#0" expanded="true" />
+            <element signature="e#3639#3640#0" expanded="true" />
+            <element signature="e#3675#3676#0" expanded="true" />
+            <element signature="e#3710#3711#0" expanded="true" />
+            <element signature="e#3746#3747#0" expanded="true" />
+            <element signature="e#3781#3782#0" expanded="true" />
+            <element signature="e#3813#3814#0" expanded="true" />
+            <element signature="e#3888#3889#0" expanded="true" />
+            <element signature="e#3920#3921#0" expanded="true" />
+            <element signature="e#3995#3996#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

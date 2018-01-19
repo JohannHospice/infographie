@@ -1,26 +1,23 @@
 package app.view;
 
-import app.controller.WorldFrameKeyController;
 import app.modele.math.*;
 import app.modele.math.Point;
 import app.modele.shape.WorldObject;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class WorldObjectPanel extends JPanel {
     private Matrix camera = Matrix.createPerspectiveZ(400);
     private Dimension dimension;
     private Vector vectorOfLight;
-    private ArrayList<WorldObject> objects;
+    private WorldObject currentObject = null;
 
     public WorldObjectPanel(int w, int h, int sizeObjects) {
         dimension = new Dimension(w, h);
         vectorOfLight = new Vector(1, 10, 10);
         setLayout(new FlowLayout());
-        objects = new ArrayList<>(sizeObjects + 1);
     }
 
     public Vector getLight() {
@@ -31,15 +28,9 @@ public class WorldObjectPanel extends JPanel {
         vectorOfLight = v;
     }
 
-    public void setWorldObject(int i, WorldObject transformedObject) {
-        objects.set(i, transformedObject);
+    public void setWorldObject(WorldObject transformedObject) {
+        currentObject = transformedObject;
         repaint();
-    }
-
-    public int addWorldObject(WorldObject transformedObject) {
-        objects.add(transformedObject);
-        repaint();
-        return objects.size() - 1;
     }
 
     @Override
@@ -47,26 +38,25 @@ public class WorldObjectPanel extends JPanel {
         return dimension;
     }
 
-    static int i = 100;
-
     @Override
     public void paintComponent(Graphics g) {
-        i++;
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, dimension.width, dimension.height);
         g.setColor(Color.BLACK);
 
+        camera = Matrix.createPerspectiveZ(400);
 
-        // camera = Calculus.multiply(Matrix.createPerspectiveZ(400), Matrix.createTranslation(new Vector(0,0,200)));
-        for (WorldObject currentObject : objects) {
+        if (currentObject != null) {
             for (Face f : currentObject) {
-                Vector n = Calculus.normalize(Calculus.crossProduct(f.getVector(0), f.getVector(1)));
-
+                Vector v0 = f.getVector(0);
+                Vector v1 = f.getVector(1);
+                Vector n = Calculus.normalize(Calculus.crossProduct(v0, v1));
                 Point pf = f.getPoint(0);
-                Vector vz = new Vector(pf.getX(), pf.getY() + 80, pf.getZ()); // Perspective
-                if (Calculus.dotProduct(n, vz) <= 0)
+                Vector vz;
+                vz = new Vector(pf.getX(), pf.getY(), pf.getZ()); // Perspective
+                if (Calculus.dotProduct(n, vz) <= 0) {
                     continue;
-
+                }
                 Iterator<Point> ip = f.pointIterator();
                 Polygon polygon = new Polygon();
                 while (ip.hasNext()) {
@@ -74,9 +64,11 @@ public class WorldObjectPanel extends JPanel {
                     if (p.getT() != 0) p.homogenize();
                     polygon.addPoint((int) (p.getX()), (int) (p.getY()));
                 }
-
                 polygon.translate((int) (getWidth() / 2), (int) (getHeight() / 2));
+
                 Color c = f.getColor();
+
+                // illumination
                 if (c != null) {
                     Color infiniteLight = Color.WHITE;
                     Color ambient = Color.WHITE;
@@ -133,5 +125,9 @@ public class WorldObjectPanel extends JPanel {
 
     public void setCamera(Matrix camera) {
         this.camera = camera;
+    }
+
+    public WorldObject getCurrentObject() {
+        return currentObject;
     }
 }
