@@ -39,8 +39,8 @@ public class WorldObjectPanel extends JPanel {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
-        g.setColor(Color.WHITE);
+    public synchronized void paintComponent(Graphics g) {
+        g.setColor(Color.BLACK);
         g.fillRect(0, 0, dimension.width, dimension.height);
         g.setColor(Color.BLACK);
 
@@ -48,15 +48,14 @@ public class WorldObjectPanel extends JPanel {
 
         if (currentObject != null) {
             for (Face f : currentObject) {
-                Vector v0 = f.getVector(0);
-                Vector v1 = f.getVector(1);
-                Vector n = Calculus.normalize(Calculus.crossProduct(v0, v1));
+                Vector n = Calculus.normalize(Calculus.crossProduct(f.getVector(0), f.getVector(1)));
                 Point pf = f.getPoint(0);
                 Vector vz;
                 vz = new Vector(pf.getX(), pf.getY(), pf.getZ()); // Perspective
-                if (Calculus.dotProduct(n, vz) <= 0) {
+
+                if (Calculus.dotProduct(n, vz) <= 0)
                     continue;
-                }
+
                 Iterator<Point> ip = f.pointIterator();
                 Polygon polygon = new Polygon();
                 while (ip.hasNext()) {

@@ -7,13 +7,14 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class Map extends WorldObject {
-    private final static Color color = Color.RED;
+    private final static Color mapColor = Color.RED, pathColor = Color.CYAN;
 
     private final int midSize, size;
 
     public Map(float[][] arr, int weight, LinkedList<VectorXY> visit) {
         this(arr, weight);
 
+        // path building
         int stroke = 8;
         float height = 10;
 
@@ -22,22 +23,28 @@ public class Map extends WorldObject {
             add(new Point(v.x * weight - midSize - stroke / 2, v.y * weight - midSize - stroke / 2, arr[v.x][v.y] + height));
         }
 
-        for (int i = arr.length * arr[0].length; i < arr.length * arr[0].length + visit.size() * 2 - 4; i++)
-            add(Color.BLUE, i, i + 1, i + 3, i + 2);
+        for (int i = arr.length * arr[0].length; i < arr.length * arr[0].length + visit.size() * 2 - 4; i++) {
+            add(pathColor, i, i + 1, i + 3, i + 2);
+
+            add(pathColor, i, i + 1, i + 2);
+            add(pathColor, i + 2, i + 3, i + 1);
+        }
     }
 
     public Map(float arr[][], int weight) {
+
+        //map building
         size = arr.length;
         midSize = size * weight / 2;
 
         for (int i = 0; i < arr.length; i++)
             for (int j = 0; j < arr[i].length; j++)
-                add(new Point(i * weight - midSize, j * weight - midSize, arr[i][j] ));
+                add(new Point(i * weight - midSize, j * weight - midSize, arr[i][j]));
 
         for (int i = 0; i < arr.length - 1; i++)
             for (int j = 0; j < arr[i].length - 1; j++) {
-                add(color, index(i, j + 1, size), index(i + 1, j, size), index(i, j, size));
-                add(color, index(i + 1, j + 1, size), index(i + 1, j, size), index(i, j + 1, size));
+                add(mapColor, index(i, j + 1, size), index(i + 1, j, size), index(i, j, size));
+                add(mapColor, index(i + 1, j + 1, size), index(i + 1, j, size), index(i, j + 1, size));
             }
     }
 

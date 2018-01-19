@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public final class WorldFrame extends JFrame {
-    private static final double FPS = 60;
+    private static final double FPS = 30;
     private static final int WINDOWS_HEIGHT = 1000;
     private final WorldObjectPanel mp;
     private final ArrayList<MapGenerator> mapGen = new ArrayList<>();
@@ -30,6 +30,7 @@ public final class WorldFrame extends JFrame {
     private double spZoom = 10;
     private double zRotation = 1;
     private float[][] grid;
+    private boolean autoMotion = true;
 
     public WorldFrame() {
         super("Map generator");
@@ -44,7 +45,6 @@ public final class WorldFrame extends JFrame {
         mp = new WorldObjectPanel(WINDOWS_HEIGHT, WINDOWS_HEIGHT, 1);
         addKeyListener(new WorldFrameKeyController(mp));
         p.add(mp, BorderLayout.CENTER);
-
         pack();
     }
 
@@ -53,16 +53,20 @@ public final class WorldFrame extends JFrame {
     }
 
     public void generateMap(int size, int weight, float variance) {
-        this.size = size;
-        this.weight = weight;
-        this.variance = variance;
-        grid = mapGen.get(mapGenIndex).set(size, size, variance).algorithm();
-        obj = new Map(grid, weight);
+        new Thread(() -> {
+            this.size = size;
+            this.weight = weight;
+            this.variance = variance;
+            grid = mapGen.get(mapGenIndex).set(size, size, variance).algorithm();
+            obj = new Map(grid, weight);
+        }).start();
     }
 
     public void generatePath(int srcX, int srxY, int dstX, int dstY) {
-        LinkedList<VectorXY> path = pathFinder.setMap(grid).find(srcX, srxY, dstX, dstY); //.setWeightMax(weight).setHeightMax(pathfinderHeightMax).setHeightMin(0);
-        obj = new Map(grid, weight, path);
+        new Thread(() -> {
+            LinkedList<VectorXY> path = pathFinder.setMap(grid).find(srcX, srxY, dstX, dstY);
+            obj = new Map(grid, weight, path);
+        }).start();
     }
 
     private void init() {
@@ -79,10 +83,10 @@ public final class WorldFrame extends JFrame {
                 obj.resetTransform();
                 obj.addTransform(Matrix.createRotationY(Math.PI * 2 / 100 * zRotation));
                 obj.addTransform(Matrix.createRotationZ(Math.PI * 2 / 100 * i));
+
                 obj.addTransform(Matrix.createRotationX(2));
                 obj.addTransform(Matrix.createTranslation(objPosition));
                 mp.setWorldObject(obj.getTransformedObject());
-
                 mp.setLight(light);
                 mp.repaint();
 
@@ -91,7 +95,8 @@ public final class WorldFrame extends JFrame {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                i += .1;
+                if (autoMotion)
+                    i += .1;
             }
         }).start();
     }
@@ -134,5 +139,13 @@ public final class WorldFrame extends JFrame {
 
     public void decObjZoom() {
         objPosition = new Vector(0, 0, objPosition.getZ() - spZoom);
+    }
+
+    public boolean getAutoMotion() {
+        return autoMotion;
+    }
+
+    public void setAutoMotion(boolean autoMotion) {
+        this.autoMotion = autoMotion;
     }
 }

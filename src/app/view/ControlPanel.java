@@ -30,14 +30,14 @@ public class ControlPanel extends JPanel {
 
     private JPanel generateViewPanel() {
 
-        JButton down = new JButton("v");
+        JButton down = new JButton("-");
         down.addActionListener(actionEvent -> worldFrame.incObjZoom());
-        JButton up = new JButton("^");
+        JButton up = new JButton("+");
         up.addActionListener(actionEvent -> worldFrame.decObjZoom());
 
-        JButton zoomP = new JButton("+");
+        JButton zoomP = new JButton("^");
         zoomP.addActionListener(actionEvent -> worldFrame.incObjRotation());
-        JButton zoomL = new JButton("-");
+        JButton zoomL = new JButton("v");
         zoomL.addActionListener(actionEvent -> worldFrame.decObjRotation());
 
         JPanel panel2 = new JPanel(new BorderLayout());
@@ -52,6 +52,9 @@ public class ControlPanel extends JPanel {
         panel.add(new JLabel("view"), BorderLayout.NORTH);
         JPanel subPanel = new JPanel();
         subPanel.add(panel1);
+        JButton autoMotionBtn = new JButton("||");
+        autoMotionBtn.addActionListener(r -> worldFrame.setAutoMotion(!worldFrame.getAutoMotion()));
+        subPanel.add(autoMotionBtn);
         subPanel.add(panel2);
         panel.add(subPanel, BorderLayout.CENTER);
         return panel;
@@ -138,13 +141,13 @@ public class ControlPanel extends JPanel {
 
         PathFinder pathFinder = worldFrame.getPathFinder();
         JTextField p[] = new JTextField[]{
-                new JTextField(),
-                new JTextField(),
-                new JTextField(),
-                new JTextField(),
-                new JTextField(String.valueOf(pathFinder.getHeightMin())),
-                new JTextField(String.valueOf(pathFinder.getHeightMax())),
-                new JTextField(String.valueOf(pathFinder.getWeightMax()))};
+                new JTextField("0"),
+                new JTextField("0"),
+                new JTextField(String.valueOf(worldFrame.getMapSize()-1)),
+                new JTextField(String.valueOf(worldFrame.getMapSize()-1)),
+                new JTextField(String.valueOf(-worldFrame.getVariance())),
+                new JTextField(String.valueOf(worldFrame.getVariance())),
+                new JTextField(String.valueOf(worldFrame.getVariance()))};
         String ms[] = new String[]{"source x:", "source y:", "destination x:", "destination y:", "height min:", "height max:", "weight max:"};
         JPanel inputs = new JPanel(new GridLayout(4, 2));
         for (int i = 0; i < ms.length; i++) {
@@ -157,7 +160,7 @@ public class ControlPanel extends JPanel {
         Button path = new Button("Path");
         panel.add(path, BorderLayout.SOUTH);
         path.addActionListener(actionEvent -> {
-            pathFinder.setHeightMin(Integer.parseInt(p[4].getText())).setWeightMax(Integer.parseInt(p[5].getText())).setWeightMax(Integer.parseInt(p[6].getText()));
+            pathFinder.setHeightMin(Float.parseFloat(p[4].getText())).setWeightMax(Float.parseFloat(p[5].getText())).setWeightMax(Float.parseFloat(p[6].getText()));
             worldFrame.generatePath(Integer.parseInt(p[0].getText()), Integer.parseInt(p[1].getText()), Integer.parseInt(p[2].getText()), Integer.parseInt(p[3].getText()));
         });
         return panel;
